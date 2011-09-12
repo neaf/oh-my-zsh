@@ -26,7 +26,28 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
+export PATH=.:$HOME/software/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
+export LD_LIBRARY_PATH=$HOME/software/lib:$LD_LIBRARY_PATH
+
+# Editr
+export EDITOR=vim
 
 # RVM
 [[ -s "/home/neaf/.rvm/scripts/rvm" ]] && source "/home/neaf/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
+# Keys
+bindkey "^[[7~" beginning-of-line
+bindkey "^[[8~" end-of-line
+bindkey "^[[3~" delete-char
+bindkey "^[[5~" up-line-or-history
+bindkey "^[[6~" down-line-or-history
+
+# Word jump
+export WORDCHARS=''
+bindkey "^[^[[D" backward-word
+bindkey "^[^[[C" forward-word
+
+# Aliases
+alias pgdb="postgres -D /home/neaf/software/data/pg"
+alias rgrep="grep -rn"
+alias penv="source ~/envs/photon/bin/activate"
