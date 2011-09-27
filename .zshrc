@@ -26,7 +26,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=.:$HOME/software/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
+export PATH=.:$HOME/tools:$HOME/software/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
 export LD_LIBRARY_PATH=$HOME/software/lib:$LD_LIBRARY_PATH
 
 # Editr
