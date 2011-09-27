@@ -39,8 +39,22 @@ ZSH_THEME_GIT_PROMPT_AHEAD=" %{$RED%}(!)"
 ZSH_THEME_GIT_PROMPT_SHA_BEFORE=" %{$WHITE%}[%{$YELLOW%}"
 ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$WHITE%}]"
 
+# RVM
+function rvm_info {
+	branch=$(current_branch)
+	branch_size=${#branch}
+
+	info="%{$BLUE%}($(rvm-prompt))%{$RESET_COLOR%}"
+
+	if [[ $branch_size -ne 0 ]];
+		then (( echo "${info} " ))
+	else
+		(( echo "${info}" ))
+	fi
+}
+
 # Prompt format
 PROMPT='
 %{$GREEN%}%n%{$RESET_COLOR%}@%{$BLUE%}%m%{$WHITE%}:%{$YELLOW%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%}
 %{$BLUE%}>%{$RESET_COLOR%} '
-RPROMPT='%{$GREEN%}$(current_branch)$(git_prompt_short_sha)$(git_prompt_status)%{$RESET_COLOR%}'
+RPROMPT='$(rvm_info)${git_separator}%{$GREEN%}$(current_branch)$(git_prompt_short_sha)$(git_prompt_status)%{$RESET_COLOR%}'
