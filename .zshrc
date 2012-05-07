@@ -21,7 +21,7 @@ ZSH_THEME="neaf"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,8 +32,8 @@ export LD_LIBRARY_PATH=$HOME/software/lib:$LD_LIBRARY_PATH
 # Editr
 export EDITOR=vim
 
-# RVM
-[[ -s "/home/neaf/.rvm/scripts/rvm" ]] && source "/home/neaf/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+# rbenv
+eval "$(rbenv init -)"
 
 # Keys
 bindkey "^[[7~" beginning-of-line
@@ -51,3 +51,5 @@ bindkey "^[^[[C" forward-word
 alias pgdb="postgres -D /home/neaf/software/data/pg"
 alias rgrep="grep -rn"
 alias penv="source ~/envs/photon/bin/activate"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
