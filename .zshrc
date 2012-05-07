@@ -32,8 +32,12 @@ export LD_LIBRARY_PATH=$HOME/software/lib:$LD_LIBRARY_PATH
 # Editr
 export EDITOR=vim
 
+# Locale
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
 # RVM
-[[ -s "/home/neaf/.rvm/scripts/rvm" ]] && source "/home/neaf/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+[[ -s "/Users/neaf/.rvm/scripts/rvm" ]] && source "/Users/neaf/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 # Keys
 bindkey "^[[7~" beginning-of-line
