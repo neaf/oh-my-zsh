@@ -26,14 +26,18 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=.:$HOME/tools:$HOME/software/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
+export PATH=.:./bin:$HOME/tools:$HOME/software/bin:/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
 export LD_LIBRARY_PATH=$HOME/software/lib:$LD_LIBRARY_PATH
 
 # Editr
 export EDITOR=vim
 
-# rbenv
-eval "$(rbenv init -)"
+# Locale
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+# RVM
+[[ -s "/Users/neaf/.rvm/scripts/rvm" ]] && source "/Users/neaf/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 # Keys
 bindkey "^[[7~" beginning-of-line
@@ -48,8 +52,10 @@ bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
 
 # Aliases
-alias pgdb="postgres -D /home/neaf/software/data/pg"
-alias rgrep="grep -rn"
-alias penv="source ~/envs/photon/bin/activate"
+alias gs="git sync"
+alias gc="git commit"
+alias serve="python -m SimpleHTTPServer"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Jump
+source `jump-bin --zsh-integration`
+alias j=jump
