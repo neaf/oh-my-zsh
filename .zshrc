@@ -26,7 +26,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=.:./bin:$HOME/tools:$HOME/software/bin:/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
+export PATH=$HOME/tools:$HOME/software/bin:/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
 export LD_LIBRARY_PATH=$HOME/software/lib:$LD_LIBRARY_PATH
 
 # Editr
@@ -52,10 +52,14 @@ bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
 
 # Aliases
+alias be="bundle exec"
 alias gs="git sync"
 alias gc="git commit"
+alias gd="git diff origin/master"
 alias serve="python -m SimpleHTTPServer"
+alias dsandbox="git push sandbox sandbox:master"
+alias dproduction="git push production master:master"
 
 # Jump
-source `jump-bin --zsh-integration`
+source `/Users/neaf/.rvm/gems/ruby-1.9.3-p194/bin/jump-bin --zsh-integration`
 alias j=jump
