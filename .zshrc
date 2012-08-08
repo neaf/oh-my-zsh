@@ -58,9 +58,11 @@ alias gc="git commit"
 alias gd="git diff origin/master"
 alias serve="python -m SimpleHTTPServer"
 alias dsandbox="git push sandbox sandbox:master"
-alias dproduction="git push production master:master"
 alias es="elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.19.4/config/elasticsearch.yml"
 
 # Jump
 source `/Users/neaf/.rvm/gems/ruby-1.9.3-p194/bin/jump-bin --zsh-integration`
 alias j=jump
+
+hosts=$(awk '/^Host / {printf("%s ",$2)}' ~/.ssh/config 2>/dev/null)
+zstyle ':completion:*:hosts' hosts $hosts
