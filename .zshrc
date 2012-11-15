@@ -55,13 +55,14 @@ bindkey "^[^[[C" forward-word
 alias be="bundle exec"
 alias gs="git sync"
 alias gc="git commit"
-alias gd="git diff origin/master"
+alias gdiff="git diff origin/master"
 alias serve="python -m SimpleHTTPServer"
 alias dsandbox="git push sandbox sandbox:master"
 alias es="elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.19.4/config/elasticsearch.yml"
 alias ab="be agility bundle"
 alias aw="be agility watch"
 alias gg='git grep -n'
+alias gd="grid deploy"
 
 
 hosts=$(awk '/^Host / {printf("%s ",$2)}' ~/.ssh/config 2>/dev/null)
