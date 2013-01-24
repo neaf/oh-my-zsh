@@ -67,3 +67,15 @@ alias gd="grid deploy"
 
 hosts=$(awk '/^Host / {printf("%s ",$2)}' ~/.ssh/config 2>/dev/null)
 zstyle ':completion:*:hosts' hosts $hosts
+
+function fsssh () {
+ ssh -i ~/.ssh/fskeypair.pem ubuntu@$1
+}
+
+function p () {
+ cd /Users/neaf/work/$1
+}
+
+function mcd() {
+mkdir -p "$1" && cd "$1";
+}
