@@ -21,7 +21,7 @@ ZSH_THEME="neaf"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -36,8 +36,8 @@ export EDITOR=vim
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-# RVM
-[[ -s "/Users/neaf/.rvm/scripts/rvm" ]] && source "/Users/neaf/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Keys
 bindkey "^[[7~" beginning-of-line
@@ -52,6 +52,8 @@ bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
 
 # Aliases
+alias bump="echo \`fortune\` >> Bumpfile && git add Bumpfile && gc -m Bump"
+alias git="hub"
 alias be="bundle exec"
 alias gs="git sync"
 alias gc="git commit"
@@ -67,6 +69,8 @@ alias gd="grid deploy"
 
 hosts=$(awk '/^Host / {printf("%s ",$2)}' ~/.ssh/config 2>/dev/null)
 zstyle ':completion:*:hosts' hosts $hosts
+
+alias cpdb="cp config/database.yml.sample config/database.yml"
 
 function fsssh () {
  ssh -i ~/.ssh/fskeypair.pem ubuntu@$1
