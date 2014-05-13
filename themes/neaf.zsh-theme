@@ -44,7 +44,7 @@ function ruby_info {
 	branch=$(current_branch)
 	branch_size=${#branch}
 
-	info="%{$BLUE%}($(rbenv_prompt_info))%{$RESET_COLOR%}"
+	info="%{$BLUE%}($(rbenv version-name))%{$RESET_COLOR%}"
 
 	if [[ $branch_size -ne 0 ]];
 		then (( echo "${info} " ))
